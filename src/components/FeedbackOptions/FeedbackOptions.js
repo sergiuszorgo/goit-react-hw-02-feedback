@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./FeedbackOptions.module.css";
+import PropTypes from "prop-types";
 
 const FeedbackOptions = ({ increment }) => {
   return (
@@ -17,3 +18,7 @@ const FeedbackOptions = ({ increment }) => {
   );
 };
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+  increment: PropTypes.func,
+};
