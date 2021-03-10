@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Statistics from "./components/Statistics/Statistics";
 import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Notification from "./components/Notification/Notification";
+import SectionTitle from "./components/SectionTitle/SectionTitle";
 import "./App.css";
 
 class App extends Component {
@@ -37,22 +38,23 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Cafe Expresso</h1>
-        <h2>Please leave feedback</h2>
-        <FeedbackOptions
-          options={this.state}
-          increment={this.handleImcrement}
-        />
-        {good > 0 || neutral > 0 || bad > 0 ? (
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            percentTotal={percentTotal}
+        <SectionTitle title="Please leave feedback">
+          <FeedbackOptions
+            options={this.state}
+            increment={this.handleImcrement}
           />
-        ) : (
-          <Notification message={"No feetback given"} />
-        )}
+          {good > 0 || neutral > 0 || bad > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              percentTotal={percentTotal}
+            />
+          ) : (
+            <Notification message={"No feetback given"} />
+          )}
+        </SectionTitle>
       </div>
     );
   }
